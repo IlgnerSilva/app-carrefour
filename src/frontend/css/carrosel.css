@@ -1,0 +1,35 @@
+.div-carrosel{
+    margin-top: 15px !important;
+}
+.bolinhas-indicadoras button{
+    border-radius: 50%;
+    
+}
+
+.carrosel-images{
+    border-radius: 5px;
+}
+
+.carrosel-images div{
+    height: 330px;
+}
+
+.carrosel-images div img{
+    height: 100%;
+}
+
+
+@media (max-width: 1025px) {
+    .carrosel-images div{
+        height: 300px;
+    }
+}
+
+@media (max-width: 640px){
+    .carrosel-images div{
+        height: 270px;
+    }
+    .carrosel-images div img{
+        object-fit: cover;
+    }
+}

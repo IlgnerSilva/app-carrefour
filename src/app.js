@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use('/public', express.static(path.join(__dirname, '../public')));
+app.use('/css', express.static(path.join(__dirname, './frontend/css')));
 app.set('view', path.join(__dirname, 'views'));
 
 

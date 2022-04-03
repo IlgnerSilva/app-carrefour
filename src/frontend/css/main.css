@@ -1,0 +1,56 @@
+.promocao-do-dia-estilos{
+    padding: 0 !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.promocao-do-dia{
+    width: 100%;
+}
+
+.promocao-do-dia a{
+    width: 100%;
+}
+
+.img-promocao-do-dia{
+    border-radius: 5px;
+    height: 80px !important;
+    max-height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.outras-promocoes{
+    width: 100;
+    flex-wrap: wrap;
+}
+
+.outras-promocoes a{
+    width: calc((100% / 4));
+}
+
+.outras-promocoes a img{
+    margin-top: 10px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    border-radius: 5px;
+    width: calc((100% - 5px));
+}
+
+
+
+@media (max-width: 1200px){
+
+}
+
+@media (max-width: 1025px) {
+    .outras-promocoes a{
+        width: calc((100% / 4));
+    }
+}
+
+@media (max-width: 640px){
+    .outras-promocoes{
+        justify-content: center !important;
+    }
+}
