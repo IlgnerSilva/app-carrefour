@@ -1,22 +1,40 @@
 <main class="main">
     <div class="container-xl  promocao-do-dia-estilos">
         <div class="promocao-do-dia">
-            <a href="#"><img class="img-fluid img-promocao-do-dia" src="./../css/assets/img/img-promocao-do-dia.webp" alt=""></a>
+            <a href="#"><img class="img-fluid img-promocao-do-dia" src="./../css/assets/img/img-promocao-do-dia.webp"
+                    alt=""></a>
         </div>
         <%- include('./carrosel.html'); %>
-        <div class="outras-promocoes d-flex align-items-center">
-            <a href="#">
-                <img class="img-fluid" src="./../css/assets/img/outras-promocoes01.webp " alt="">
-            </a>
-            <a href="#">
-                <img class="img-fluid" src="./../css/assets/img/outras-promocoes02.webp" alt="">
-            </a>
-            <a href="#">
-                <img class="img-fluid" src="./../css/assets/img/outras-promocoes03.webp" alt="">
-            </a>
-            <a href="#">
-                <img class="img-fluid" src="./../css/assets/img/outras-promocoes04.webp" alt="">
-            </a>
-        </div>
+            <div class="outras-promocoes d-flex align-items-center">
+                <a href="#">
+                    <img class="img-fluid" src="./../css/assets/img/outras-promocoes01.webp " alt="">
+                </a>
+                <a href="#">
+                    <img class="img-fluid" src="./../css/assets/img/outras-promocoes02.webp" alt="">
+                </a>
+                <a href="#">
+                    <img class="img-fluid" src="./../css/assets/img/outras-promocoes03.webp" alt="">
+                </a>
+                <a href="#">
+                    <img class="img-fluid" src="./../css/assets/img/outras-promocoes04.webp" alt="">
+                </a>
+            </div>
     </div>
+    <section class="section-novidades container-xl">
+        <h2>Novidades que acabaram de chegar pra você!</h2>
+        <div class="card d-flex" style="width: 18rem;">
+        <% for(let i = 0; i < posts.length; i++){ %>
+            <a href="<%= posts[i].slug %>">
+                <img src="<%= posts[i].image %>" class="card-img-top" alt="Imagem do produto">
+                <div class="card-body">
+                    <div class="titulo-e-descricao">
+                        <h5 class="card-text titulo-produto"><%= posts[i].titulo %></h5>
+                        <p><%- posts[i].descricaoCurta %>...</p>
+                    </div>
+                    <span class="preco-produto"><%= posts[i].preco %></span>
+                </div>
+            </a>
+            <% } %>
+        </div>
+    </section>
 </main>

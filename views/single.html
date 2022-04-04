@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../src/frontend/components/head.html'); %>
+<body>
+    <%- include('../src/frontend/components/header.html'); %>
+    <main>
+        <div class="container-xl single-produto d-flex align-items-center flex-wrap">
+            <div class="img-produto-single">
+                <img class="img-fluid" src="<%= resposta.image %>" alt="Imagem do liquidificador">
+            </div>
+            <div class="comprar-produto">
+                <h2 class="titulo-produto"><%= resposta.titulo %></h2>
+                <span>Marca: <a href="#">Philips Walita</a></span>
+                <div class="comprar d-flex">
+                    <div class="preco">
+                        <p class="preco-comprar"><%= resposta.preco %></p>
+                        <p>em <strong>1x </strong>no cartão ou boleto</p>
+                        <p><span>2x </span>de <span>R$ 64,45 </span>sem juros</p>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-lg">comprar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl descricao-completa-produto">
+            <h3>Descrição do produto</h3>
+            <p><%- resposta.conteudo %></p>
+        </div>
+    </main>
+</body>
+</html>
