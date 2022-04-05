@@ -28,8 +28,8 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:slug', async (req, res) => {
-    await Posts.findOneAndUpdate({ slug: req.params.slug }, { $inc: { views: 1 } }, { new: true }, (err, resposta) => {
-        res.render('single', { resposta })
+ Posts.findOneAndUpdate({ slug: req.params.slug }, { $inc: { view: 1 } }, { new: true }, (err, resposta) => {    
+    res.render('single', { resposta })
     })
 })
 
