@@ -1,19 +1,19 @@
 const mongoose = require('./../database/connection');
 
 const Schema = mongoose.Schema({
-    titulo:{
+    titulo_produto:{
         type: 'string',
         required: true
     },
-    image:{
+    marca:{
+        type: 'string',
+        required: true
+    },
+    url_imagem:{
         type: 'string',
         required: true,
     },
-    categoria:{
-        type: 'string',
-        required: true,
-    },
-    conteudo:{
+    descricao_produto:{
         type: 'string',
         required: true,
     },
@@ -22,7 +22,11 @@ const Schema = mongoose.Schema({
         required: true,
         unique: true
     },
-    preco:{
+    preco_produto:{
+        type: 'string',
+        required: true,
+    },
+    max_qtd_parcelas:{
         type: 'string',
         required: true,
     },

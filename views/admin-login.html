@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../src/frontend/components/head.html'); %>
+<body>
+    <div class="container d-flex justify-content-center flex-column align-items-center container-admin-login">
+        <img style="width: 200px; padding-top:50px" class="img-fluid" src="/css/assets/img/logo-carrefour-site.png" alt="">
+        <form method="post" class="container-admin-login-form">
+            <div class="mb-3">
+                <label for="exampleInputLogin" class="form-label">Login</label>
+                <input required="required" type="text" name="login" class="form-control" id="exampleInputLogin" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                <input type="password" name="senha" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

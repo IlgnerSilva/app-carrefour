@@ -20,21 +20,5 @@
                 </a>
             </div>
     </div>
-    <section class="section-novidades container-xl">
-        <h2>Novidades que acabaram de chegar pra você!</h2>
-        <div class="card d-flex" style="width: 18rem;">
-        <% for(let i = 0; i < posts.length; i++){ %>
-            <a href="<%= posts[i].slug %>">
-                <img src="<%= posts[i].image %>" class="card-img-top" alt="Imagem do produto">
-                <div class="card-body">
-                    <div class="titulo-e-descricao">
-                        <h5 class="card-text titulo-produto"><%= posts[i].titulo %></h5>
-                        <p><%- posts[i].descricaoCurta %>...</p>
-                    </div>
-                    <span class="preco-produto"><%= posts[i].preco %></span>
-                </div>
-            </a>
-            <% } %>
-        </div>
-    </section>
+    <%- include('./cards-produtos.html'); %>
 </main>

@@ -2,9 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
+const session = require('express-session')
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
+app.use(session({secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');

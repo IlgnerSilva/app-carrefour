@@ -36,8 +36,48 @@
     border-radius: 5px;
     width: calc((100% - 5px));
 }
+.container-busca-produtos{
+    display: flex;
+    width: 100%;
+}
+.container-produtos{
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    background-color: #EF5017;
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #0E2E6D;
+    border-radius: 5px;
+}
 
+.corpo-card{
+    padding: 0!important;
+}
+.card-produtos{
+    margin: 0 5px;
+    width: calc((100% / 5) - 5px);
+    min-width: 220px;
+}
+.titulo-e-descricao{
+    max-height: 29px;
+    padding: 20px;
+}
 
+.precos-e-parcelas{
+    padding: 20px;
+}
+.titulo-produto{
+    font-size: 12px
+}
+.parcela{
+    font-size: 11px
+}
 
 @media (max-width: 1200px){
 

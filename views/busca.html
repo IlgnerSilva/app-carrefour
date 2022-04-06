@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <%- include('../src/frontend/components/head.html'); %>
-<body>
-    <%- include('../src/frontend/components/header.html'); %>
-    <main class="main">
-        <section class="section-novidades container-xl">
-            <h2>Novidades que acabaram de chegar pra você!</h2>
-            <div class="card" style="width: 18rem;">
-                <a href="#">
-                    <img src="./../css/assets/img/produtos/prod01.webp" class="card-img-top" alt="Imagem do produto">
-                    <div class="card-body">
-                        <div class="titulo-e-descricao">
-                            <h5 class="card-text">Liquidificador Philips Walita Daily RI2110 Pro Blend 550W 2L Preto</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi laudantium aliquam alias iure, quas voluptatibus in cumque doloribus nostrum, quidem itaque nobis perspiciatis omnis fuga quisquam? Aspernatur excepturi nostrum quisquam?</p>
-                        </div>
-                        <span class="preco-produto">R$ 128,90</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-    </main>
-</body>
+
+    <body>
+        <%- include('../src/frontend/components/header.html'); %>
+            <main class="main">
+                <%- include('../src/frontend/components/cards-produtos.html'); %>
+            </main>
+    </body>
+
 </html>
