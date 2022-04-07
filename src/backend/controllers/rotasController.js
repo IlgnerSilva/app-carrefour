@@ -2,50 +2,37 @@ const express = require('express');
 const router = express.Router();
 const Posts = require('./../models/Posts');
 const slug = require('slug');
-const app = require('../../app');
+const Querys = require('./../models/Querys')
+const query = new Querys(Posts)
 
 router.get('/', async (req, res) => {
-    if (req.query.busca == null) {
-        Posts.find({}).sort({ '_id': -1 }).exec((err, posts) => {
-            const postagem = posts.map((val) => {
-                return {
-                    tituloProdutoCurto: val.titulo_produto.substr(0, 50),
-                    urlImagem: val.url_imagem,
-                    slug: val.slug,
-                    precoProduto: val.preco_produto
-                }
-            })
+    try{
+        if (req.query.busca == null) {
+            const postagem = await query.getBuscaTodos()
             res.render('home', { postagem });
-        })
-        
-    } else {
-        Posts.find({ titulo_produto: { $regex: req.query.busca, $options: 'i' } }, (err, posts) => {
-            if (posts[0] == undefined) {
+        } else {
+            const postagem = await query.getBuscaPeloInput({ titulo_produto: { $regex: req.query.busca, $options: 'i' } })
+            if (postagem[0] == undefined) {
                 res.render('404');
             } else {
-                const postagem = posts.map((val) => {
-                    return {
-                        tituloProdutoCurto: val.titulo_produto.substr(0, 50),
-                        urlImagem: val.url_imagem,
-                        slug: val.slug,
-                        precoProduto: val.preco_produto
-                    }
-                });
                 res.render('busca', { postagem });
             }
-        });
+        }
+    }catch(err){
+        res.render('404');
     }
 });
-
 router.get('/:slug', async (req, res) => {
-    Posts.findOneAndUpdate({ slug: req.params.slug }, { $inc: { views: 1 } }, { new: true }, (err, resposta) => {
-        console.log(resposta)
+    try{
+        const resposta = await query.getSingleProduto({ slug: req.params.slug }, { $inc: { views: 1 } }, { new: true })
         if (resposta == null) {
             res.render('404');
         } else {
             res.render('single', { resposta })
         }
-    })
+    }catch(err){
+        res.render('404');
+    }
 })
 
 const usuarios = [
@@ -64,18 +51,10 @@ router.post('/admin/auth', (req, res) => {
     res.redirect('/admin/auth');
 })
 
-router.post('/admin/cadastro', (req, res) => {
-    Posts.create({
-        titulo_produto : req.body.tituloProduto,
-        marca : req.body.marcaProduto,
-        url_imagem : req.body.urlImagem,
-        descricao_produto : req.body.descricaoProduto,
-        slug : req.body.slug,
-        preco_produto : req.body.preco,
-        max_qtd_parcelas : req.body.maxQtdParcelas,
-        views: 0
-    })
-    res.send('Cadastro');
+router.post('/admin/cadastro', async(req, res) => {
+    const body = req.body;
+    const adiciona = await query.postAdicionaProdutos(body.tituloProduto, body.marcaProduto, body.urlImagem, body.descricaoProduto, body.preco, body.maxQtdParcelas)
+    res.redirect(`/${adiciona.slug}`);
 })
 
 router.get('/admin/auth', (req, res) => {
