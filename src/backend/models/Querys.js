@@ -72,5 +72,25 @@ class Querys{
             });
         });
     }
+    getMaisVisualizados(){
+        return new Promise((resolve, reject)=>{
+            this.Posts.find({}).sort({ 'views': -1 }).limit(5).exec((err, maisVistos)=>{
+                const views = maisVistos.map((val)=>{
+                    return {
+                        tituloProdutoCurto: val.titulo_produto.substr(0, 50),
+                        urlImagem: val.url_imagem,
+                        slug: val.slug,
+                        precoProduto: val.preco_produto,
+                        view: val.views
+                    }
+                });
+                if(err){
+                    reject(`Não foi possivel encontrar as views`)
+                }else{
+                    resolve(views)
+                }
+            })
+        })
+    }
 }
 module.exports = Querys;

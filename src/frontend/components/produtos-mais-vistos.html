@@ -1,0 +1,23 @@
+<section class="section-novidades container-xl ">
+    <h2 class="titulos-sessoes">Veja o que está em alta entre os usuários</h2>
+    <div class="container-produtos">
+        <% for(let i = 0; i < views.length; i++){ %>
+            <div class="card card-produtos position-relative">
+                <p><img src="./../css/assets/icons/icon-eye.png" alt=""><%= views[i].view %> </p>
+                <a href="<%= views[i].slug %>">
+                    <img src="<%= views[i].urlImagem %>" class="card-img-top" alt="Imagem do produto">
+                    <div class="card-body d-flex justify-content-center flex-column corpo-card">
+                        <div class="titulo-e-descricao">
+                            <h5 class="card-text titulo-produto"><%= views[i].tituloProdutoCurto %>...</h5>
+                        </div>
+                        <div class="precos-e-parcelas">
+                            <span class="preco-produto">R$ <%= views[i].precoProduto %></span>
+                            <br>
+                            <span class="parcela">em 1x no cartão ou boleto</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% } %>
+        </div>
+</section>

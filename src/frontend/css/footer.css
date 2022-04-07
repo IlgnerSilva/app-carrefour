@@ -1,0 +1,64 @@
+.footer{
+    width: 100%;
+    padding-top: 20px;
+}
+.jeito_carrefour{
+    padding: 0;
+}
+.card_jeito_carrefour{
+    width: calc(100% / 5);
+}
+.text_jeito_carrefour span{
+    display: block;
+    font-size: 14px
+}
+.text_jeito_carrefour p{
+    font-size: 12px
+}
+.help{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+.help .opcoes{
+    width: calc(100% / 5);
+    margin: 0 10px;
+}
+.help .opcoes h3{
+    font-size: 18px
+}
+.help .opcoes a{
+    font-size: 15px;
+    margin: 5px 0;
+    color: rgb(94, 94, 94);
+    line-height: 1.2rem
+}
+.help .opcoes a:hover{
+    text-decoration: underline;
+    color: rgb(0, 0, 0)
+}
+.link_opcoes{
+    margin-top: 10px
+}
+.para_contato p{
+    margin: 0;
+    font-size: 15px;
+    color: rgb(94, 94, 94);
+}
+.para_contato button{
+    color: #074dc7;
+}
+.para_contato button:hover{
+    color: #4d81db;
+    border-color: #4d81db;
+    background-color: #FFF;
+}
+.para_contato button > img{
+    padding-left: 5px;
+}
+.direitos{
+    background-color: #1F5BC6;
+    color: #fff;
+    font-weight: bold;
+    padding: 20px;
+}

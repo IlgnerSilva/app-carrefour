@@ -5,8 +5,11 @@
     <body>
         <%- include('../src/frontend/components/header.html'); %>
             <main class="main">
-                <%- include('../src/frontend/components/cards-produtos.html'); %>
+                <section class="section-novidades container-xl ">
+                    <h2 class="titulos-sessoes"> <%- postagem.length %> resultados sobre o item pesquisado</h2>
+                    <%- include('../src/frontend/components/cards-produtos.html'); %>
+                </section>
             </main>
     </body>
-
+    <%- include('../src/frontend/components/footer.html'); %>
 </html>
