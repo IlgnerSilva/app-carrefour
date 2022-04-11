@@ -40,12 +40,16 @@
             </form>
         <div class="para-usuario d-flex align-items-center justify-content-between">
             <div class="login para-usuario-opcoes display-none-640px">
-                <a class="d-flex align-items-center" href="#">
+                <a class="d-flex align-items-center" href="/auth/login_cadastro">
                     <img class="icon-login-user" src="./../css/assets/icons/icon-user.png" alt="Icone login">
                     <div class="link-login link-para-usuario display-none-1200px">
                         <strong class="">Bem-vindo</strong>
                         <br>
-                        Entre
+                        <% if (resposta == undefined) { %>
+                            Entre
+                            <%} else { %>
+                            <%- resposta %>
+                            <% } %>
                     </div>
                 </a>
             </div>

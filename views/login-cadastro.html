@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../src/frontend/components/head.html'); %>
+<body>
+    <img style="width: 200px; padding-top:50px;" class="img-fluid" src="/css/assets/img/logo-carrefour-site.png" alt="">
+    <div class="container d-flex container-admin-login">
+        <form method="post" action="/auth/login" class="container-admin-login-form container d-flex flex-column">
+            <h2>Já tenho Cadastro!</h2>
+            <div class="mb-3">
+                <input required="required" type="text" name="email" class="form-control" id="entrarEmail" aria-describedby="emailHelp" placeholder="E-mail">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="senha" class="form-control" id="entrarSenha" placeholder="Senha">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="/auth/esqueci-minha-senha">Esqueceu a senha?</a>
+            <% if (resposta.status === 400) { %>
+                <p></p>
+                <%} else { %>
+                <p style="color:green;"><%- resposta %></p>
+                <% } %>
+        </form>
+
+        <form method="post" action="/auth/login_cadastro" class="container-admin-login-form container d-flex flex-column">
+            <h2>Quero me Cadastrar</h2>
+            <div class="mb-3">
+                <input required="required" type="text" name="nome" class="form-control" id="cadastrarNome" aria-describedby="nameHelp" placeholder="Nome *">
+            </div>
+            <div class="mb-3">
+                <input required="required" type="text" name="email" class="form-control" id="cadastrarEmail" aria-describedby="emailHelp" placeholder="E-mail *">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="senha" class="form-control" id="cadastrarSenha" placeholder="Senha *">
+            </div>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <% if (resposta.status === 400) { %>
+                <p style="color: red"> <%- resposta.data.error %></p>
+                <%} else { %>
+                <p></p>
+                <% } %>
+            
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('../src/frontend/components/head.html'); %>
+<body>
+    <img style="width: 200px; padding-top:50px;" class="img-fluid" src="/css/assets/img/logo-carrefour-site.png" alt="">
+    <div class="container d-flex container-admin-login">
+        <form method="post" action="/auth/esqueci-minha-senha" class="container-admin-login-form justify-content-center container d-flex flex-column">
+            <h2>Digite seu email</h2>
+            <div class="mb-3">
+                <input required="required" type="text" name="email" class="form-control" id="entrarEmail" aria-describedby="emailHelp" placeholder="E-mail">
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <% if (resposta.status == 400) { %>
+                <p style="color:red;"><%- resposta.data.error %></p>
+                <%} else { %>
+                <p style="color:green;"><%- resposta %></p>
+                <% } %>
+        </form>
+
+        <form method="post" action="/auth/reset-senha" class="container-admin-login-form container d-flex flex-column">
+            <h2>Nova senha</h2>
+            <div class="mb-3">
+                <input required="required" type="email" name="email" class="form-control" id="cadastrarNome" aria-describedby="nameHelp" placeholder="Email atual *">
+            </div>
+            <div class="mb-3">
+                <input required="required" type="text" name="token" class="form-control" id="cadastrarToken" aria-describedby="emailHelp" placeholder="Digite o Token que você recebeu *">
+            </div>
+            <div class="mb-3">
+                <input type="password" name="senha" class="form-control" id="cadastrarSenha" placeholder="Nova senha *">
+            </div>
+            <button type="submit" class="btn btn-primary">Reset senha</button>
+
+            
+        </form>
+    </div>
+</body>
+</html>
