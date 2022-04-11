@@ -25,17 +25,27 @@ router.get('/', async (req, res) => {
     }
 });
 router.get('/:slug', async (req, res) => {
+    const resposta = req.session.login
     try {
-        const resposta = req.session.login
-        const respostaSingle = await query.getSingleProduto({ slug: req.params.slug }, { $inc: { views: 1 } }, { new: true })
+        const respostaSingle = await query.getSingleProduto({ slug: req.params.slug }, { $inc: { views: 1 } }, { new: true });
         if (respostaSingle == null) {
             res.render('404', {resposta});
         } else {
-            res.render('single', { respostaSingle, resposta })
+            res.render('single', { respostaSingle, resposta });
         }
     } catch (err) {
         res.render('404', {resposta});
     }
+})
+
+router.get('/categoria/:slug', async (req, res) => {
+    const resposta = req.session.login;
+    const postagem = await query.getBuscaPeloInput({ categoria: req.params.slug})
+            if (postagem[0] == undefined) {
+                res.render('404', {resposta});
+            } else {
+                res.render('busca', { postagem, resposta });
+            }
 })
 
 const usuarios = [
@@ -57,8 +67,8 @@ router.post('/admin/auth', (req, res) => {
 router.post('/admin/cadastro', async (req, res) => {
     try {
         const body = req.body;
-        const adiciona = await query.postAdicionaProdutos(body.tituloProduto, body.marcaProduto, body.urlImagem, body.descricaoProduto, body.preco, body.maxQtdParcelas);
-        res.redirect(`/${adiciona.slug}`);
+        const adiciona = await query.postAdicionaProdutos(body.tituloProduto, body.marcaProduto, body.urlImagem, body.descricaoProduto, body.preco, body.maxQtdParcelas, body.select);
+        res.redirect(`/`);
     } catch (err) {
         res.send(err);
     }

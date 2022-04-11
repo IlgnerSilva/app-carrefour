@@ -54,7 +54,7 @@ class Querys{
             });
         });
     }
-    postAdicionaProdutos(titulo, marca, url, descricao, preco, parcelas){
+    postAdicionaProdutos(titulo, marca, url, descricao, preco, parcelas, categoria){
         return new Promise((resolve, reject)=>{
             this.Posts.create({
                 titulo_produto: titulo,
@@ -64,6 +64,7 @@ class Querys{
                 slug: slugURL(titulo),
                 preco_produto: preco,
                 max_qtd_parcelas: parcelas,
+                categoria: slugURL(categoria),
                 views: 0
             }, (err, res)=>{
                 if(err){

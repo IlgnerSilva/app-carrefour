@@ -30,6 +30,10 @@ const Schema = mongoose.Schema({
         type: 'string',
         required: true,
     },
+    categoria:{
+        type: 'string',
+        required: true,
+    },
     views:{
         type: Number
     }
