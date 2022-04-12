@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .single-img-produto-single{
     max-width: 40%;
 }
@@ -31,4 +32,29 @@
     .single-card-comprar{
         width: 100%;
     }
+=======
+.img-produto-single{
+    width: 300px;
+    max-width: 490px;
+}
+
+.meu-produto{
+    box-shadow: 0px 0px 8px 1px #ccc;
+    border-radius: 5px;
+}
+
+.titulo-produto{
+    font-size: 1.2rem;
+}
+.meu-produto span, a{
+    font-size: 0.8rem;
+    color: rgb(104, 104, 104);
+}
+
+.preco-comprar{
+    font-size: 1.5rem;
+    color: #2C5BCA;
+    font-weight: bold;
+    line-height: 20px;
+>>>>>>> 56efb9473db2310e07d10f7e41d480fb93404ae5
 }
