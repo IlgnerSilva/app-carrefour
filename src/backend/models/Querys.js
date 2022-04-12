@@ -9,6 +9,7 @@ class Querys{
             this.Posts.find({}).sort({ '_id': -1 }).exec((err, posts) => {
                 const postagem = posts.map((val)=>{
                     return {
+                        id: val._id,
                         tituloProdutoCurto: val.titulo_produto.substr(0, 50),
                         urlImagem: val.url_imagem,
                         slug: val.slug,

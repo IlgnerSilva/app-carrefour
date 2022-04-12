@@ -4,20 +4,24 @@
 <body>
     <%- include('../src/frontend/components/header.html'); %>
     <main>
-        <div class="container-xl single-produto d-flex align-items-center flex-wrap">
-            <div class="img-produto-single">
+        <div class="container-xl single-produto d-flex align-items-center justify-content-around w-100">
+            <div class="single-img-produto-single">
                 <img class="img-fluid" src="<%- respostaSingle.url_imagem %>" alt="Imagem do liquidificador">
             </div>
-            <div class="comprar-produto">
-                <h2 class="titulo-produto"><%= respostaSingle.titulo_produto %></h2>
-                <span>Marca: <a href="#"><%= respostaSingle.marca %></a></span>
-                <div class="comprar d-flex">
-                    <div class="preco">
-                        <p class="preco-comprar"><%= respostaSingle.preco_produto %></p>
-                        <p>em <strong>1x </strong>no cartão ou boleto</p>
-                        <p><span><%= respostaSingle.max_qtd_parcelas %>x </span>de <span>R$ 64,45 </span>sem juros</p>
+            <div class="comprar-produto d-flex justify-content-center">
+                <div class="single-card-comprar border p-3">
+                    <h2 class="single-titulo-produto"><%= respostaSingle.titulo_produto %></h2>
+                    <span>Marca: <a href="#"><%= respostaSingle.marca %></a></span>
+                    <div class="single-comprar d-flex justify-content-between">
+                        <div class="single-preco">
+                            <p class="single-preco-comprar"><%= respostaSingle.preco_produto %></p>
+                            <p>em <strong>1x </strong>no cartão ou boleto</p>
+                            <p><span><%= respostaSingle.max_qtd_parcelas %>x </span>de <span>R$ 64,45 </span>sem juros</p>
+                        </div>
+                        <div class="btn-comprar">
+                            <button type="button" class="btn btn-primary btn-lg"><img src="./css/assets/icons/icon-carrinho-btn-comprar.png" alt=""> Comprar</button>
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-lg">comprar</button>
                 </div>
             </div>
         </div>

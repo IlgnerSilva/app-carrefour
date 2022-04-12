@@ -62,3 +62,12 @@
     font-weight: bold;
     padding: 20px;
 }
+
+@media (max-width: 1025px){
+    .footer-mobile-categorias{
+        display: block!important;
+    }
+    .display-none-1025px{
+        display: none !important; 
+    }
+}

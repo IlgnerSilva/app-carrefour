@@ -68,18 +68,24 @@ router.post('/admin/cadastro', async (req, res) => {
     try {
         const body = req.body;
         const adiciona = await query.postAdicionaProdutos(body.tituloProduto, body.marcaProduto, body.urlImagem, body.descricaoProduto, body.preco, body.maxQtdParcelas, body.select);
-        res.redirect(`/`);
+        res.redirect('/')
     } catch (err) {
         res.send(err);
     }
 })
 
-router.get('/admin/auth', (req, res) => {
+router.get('/admin/deletar/:id', async (req, res) => {
+    Posts.deleteOne({_id: req.params.id}).then(() => res.redirect('/admin/auth'))
+})
+
+router.get('/admin/auth', async(req, res) => {
     try{
-        if (req.session.login == null) {
-            res.render('admin-login');
+        const postagem = await query.getBuscaTodos();
+        if (req.session.login == "Administrador") {
+            res.render('painel-admin', {postagem});
         } else {
-            res.render('painel-admin');
+            req.session.destroy()
+            res.render('admin-login');
         }
     }catch(err){
         res.send(err);
