@@ -75,7 +75,6 @@ router.post('/admin/cadastro', async (req, res) => {
     }
 })
 
-<<<<<<< HEAD
 router.get('/admin/deletar/:id', async (req, res) => {
     Posts.deleteOne({_id: req.params.id}).then(() => res.redirect('/admin/auth'))
 })
@@ -85,12 +84,6 @@ router.get('/admin/auth', async(req, res) => {
         const postagem = await query.getBuscaTodos();
         if (req.session.login == "Administrador") {
             res.render('painel-admin', {postagem});
-=======
-router.get('/admin/auth', (req, res) => {
-    try {
-        if (req.session.login == 'Administrador') {
-            res.render('painel-admin');
->>>>>>> 56efb9473db2310e07d10f7e41d480fb93404ae5
         } else {
             req.session.destroy()
             res.render('admin-login');
