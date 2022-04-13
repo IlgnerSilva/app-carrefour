@@ -55,7 +55,7 @@
             <% for(let i = 0; i < postagem.length; i++){ %>
                 <div class="card card-produtos position-relative">
                     <div class="deletar">
-                        <a href="/admin/deletar/<%= postagem[i].id %>">(X)</a>
+                        <a style="color: red" href="/admin/deletar/<%= postagem[i].id %>">Excluir(X)</a>
                     </div>
                     <a href="<%= postagem[i].slug %>">
                         <img src="<%= postagem[i].urlImagem %>" class="card-img-top" alt="Imagem do produto">
