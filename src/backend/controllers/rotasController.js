@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     try {
         const resposta = req.session.login;
         if (req.query.busca == null) {
-            const postagem = await query.getBuscaTodos();
+            const postagem = await query.getBuscaUltimosAdd();
             const views = await query.getMaisVisualizados()
             res.render('home', { postagem, views, resposta });
         } else {
@@ -69,21 +69,21 @@ router.post('/admin/cadastro', async (req, res) => {
     try {
         const body = req.body;
         const adiciona = await query.postAdicionaProdutos(body.tituloProduto, body.marcaProduto, body.urlImagem, body.descricaoProduto, body.preco, body.maxQtdParcelas, body.select);
-        res.redirect('/')
+        res.redirect(307, '/admin/auth')
     } catch (err) {
         res.send(err);
     }
 })
 
 router.get('/admin/deletar/:id', async (req, res) => {
-    Posts.deleteOne({_id: req.params.id}).then(() => res.redirect('/admin/auth'))
+    Posts.deleteOne({ _id: req.params.id }).then(() => res.redirect('/admin/auth'))
 })
 
-router.get('/admin/auth', async(req, res) => {
-    try{
+router.get('/admin/auth', async (req, res) => {
+    try {
         const postagem = await query.getBuscaTodos();
         if (req.session.login == "Administrador") {
-            res.render('painel-admin', {postagem});
+            res.render('painel-admin', { postagem });
         } else {
             req.session.destroy()
             res.render('admin-login');
@@ -94,6 +94,11 @@ router.get('/admin/auth', async(req, res) => {
 });
 
 router.post('/auth/login_cadastro', async (req, res) => {
+    try {
+        
+    } catch (error) {
+        
+    }
     const { nome, email, senha } = req.body;
     const resposta = await axios.post('https://apiusuarioscarrefour.herokuapp.com/auth/cadastrar', { nome: nome, email: email, senha, senha }).then((response) => {
         response = 'Usuário cadastrado com sucesso'
@@ -140,7 +145,7 @@ router.post('/auth/esqueci-minha-senha', async (req, res) => {
     }).catch((err) => {
         return err.response;
     })
-    console.log(resposta);
+
     if (resposta.status === 400) {
         res.render('esqueci-senha', { resposta })
     } else {

@@ -4,7 +4,7 @@
 <body>
     <%- include('../src/frontend/components/header.html'); %>
     <main>
-        <div class="container-xl single-produto d-flex align-items-center justify-content-around w-100">
+        <div class="container-xl single-produto d-flex align-items-center pb-3 mb-3 justify-content-around w-100">
             <div class="single-img-produto-single">
                 <img class="img-fluid" src="<%- respostaSingle.url_imagem %>" alt="Imagem do liquidificador">
             </div>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="container-xl descricao-completa-produto">
+        <div class="container-xl mt-3 pt-3 descricao-completa-produto">
             <h3>Descrição do produto</h3>
             <p><%- respostaSingle.descricao_produto %></p>
         </div>

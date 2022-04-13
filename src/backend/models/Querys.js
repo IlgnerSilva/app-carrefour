@@ -25,6 +25,27 @@ class Querys{
             
         })
     }
+    getBuscaUltimosAdd(){
+        return new Promise((resolve, reject)=>{
+            this.Posts.find({}).sort({ '_id': -1 }).limit(5).exec((err, posts) => {
+                const postagem = posts.map((val)=>{
+                    return {
+                        id: val._id,
+                        tituloProdutoCurto: val.titulo_produto.substr(0, 50),
+                        urlImagem: val.url_imagem,
+                        slug: val.slug,
+                        precoProduto: val.preco_produto
+                    }
+                });
+                if(err){
+                    reject(`Sem conexão com o banco de dados ${err}`)
+                }else{
+                    resolve(postagem)
+                }
+            })
+            
+        })
+    }
     getBuscaPeloInput(query){
         return new Promise((resolve, reject)=>{
             this.Posts.find(query, (err, post)=>{
@@ -70,6 +91,8 @@ class Querys{
             }, (err, res)=>{
                 if(err){
                     reject(`Não foi possível adicionar nenhum produto ${err}`)
+                }else{
+                    resolve('Produto adiconado')
                 }
             });
         });

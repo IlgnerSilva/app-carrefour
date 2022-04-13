@@ -4,8 +4,9 @@ const path = require('path');
 const app = express();
 const session = require('express-session')
 
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 
 app.use(session({secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
