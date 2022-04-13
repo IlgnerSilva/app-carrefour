@@ -1,7 +1,7 @@
 <div class="container-produtos">
     <% for(let i = 0; i < postagem.length; i++){ %>
         <div class="card card-produtos position-relative">
-            <a href="<%= postagem[i].slug %>">
+            <a href="/<%= postagem[i].slug %>">
                 <img src="<%= postagem[i].urlImagem %>" class="card-img-top" alt="Imagem do produto">
                 <div class="card-body d-flex justify-content-center flex-column corpo-card">
                     <div class="titulo-e-descricao">
