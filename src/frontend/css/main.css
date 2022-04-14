@@ -85,12 +85,15 @@
 
 @media (max-width: 1025px) {
     .outras-promocoes a{
-        width: calc((100% / 4));
+        width: calc((100% / 2));
     }
 }
 
 @media (max-width: 640px){
     .outras-promocoes{
         justify-content: center !important;
+    }
+    .outras-promocoes a{
+        width: calc((100% / 1));
     }
 }
