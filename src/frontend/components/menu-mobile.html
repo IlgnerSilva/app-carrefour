@@ -12,12 +12,14 @@
                             <img class="icon-login-user" src="./../css/assets/icons/icon-user-menu-lateral.png"
                                 alt="Icone login">
                             <div class="link-login link-para-usuario">
-                                <strong class="">Bem-vindo</strong>
-                                <br>
                                 <% if (resposta == undefined) { %>
+                                    <strong class="">Bem-vindo</strong>
+                                    <br>
                                     Entre
                                     <%} else { %>
                                     <%- resposta %>
+                                    <br>
+                                    <a href="/auth/logout">Sair</a>
                                     <% } %>
                             </div>
                         </a>

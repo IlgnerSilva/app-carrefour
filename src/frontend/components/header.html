@@ -43,12 +43,14 @@
                 <a class="d-flex align-items-center" href="/auth/login_cadastro">
                     <img class="icon-login-user" src="./../css/assets/icons/icon-user.png" alt="Icone login">
                     <div class="link-login link-para-usuario display-none-1200px">
-                        <strong class="">Bem-vindo</strong>
-                        <br>
                         <% if (resposta == undefined) { %>
+                            <strong class="">Bem-vindo</strong>
+                            <br>
                             Entre
                             <%} else { %>
                             <%- resposta %>
+                            <br>
+                            <a href="/auth/logout">Sair</a>
                             <% } %>
                     </div>
                 </a>

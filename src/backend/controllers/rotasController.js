@@ -163,4 +163,9 @@ router.post('/auth/reset-senha', async (req, res) => {
         res.render('esqueci-senha', { resposta });
     }
 })
+
+router.get('/auth/logout', (req,res)=>{
+    req.session.destroy();
+    res.redirect('/');
+})
 module.exports = app => app.use('/', router);
