@@ -94,11 +94,6 @@ router.get('/admin/auth', async (req, res) => {
 });
 
 router.post('/auth/login_cadastro', async (req, res) => {
-    try {
-        
-    } catch (error) {
-        
-    }
     const { nome, email, senha } = req.body;
     const resposta = await axios.post('https://apiusuarioscarrefour.herokuapp.com/auth/cadastrar', { nome: nome, email: email, senha, senha }).then((response) => {
         response = 'Usuário cadastrado com sucesso'

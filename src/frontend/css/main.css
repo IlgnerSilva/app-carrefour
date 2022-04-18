@@ -43,7 +43,7 @@
 .container-produtos{
     display: flex;
     width: 100%;    
-    overflow: auto;
+    
 }
 ::-webkit-scrollbar{
     background-color: #EF5017;
